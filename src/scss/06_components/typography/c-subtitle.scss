@@ -1,0 +1,6 @@
+.c-subtitle {
+    @include font(primary, bold);
+    @include font-size(fs-120);
+    display: inline-block;
+    margin-bottom: $space-stack-xxs;
+}

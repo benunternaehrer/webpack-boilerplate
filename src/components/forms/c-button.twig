@@ -1,0 +1,24 @@
+{#
+/**
+ * c-button
+ * @param {tag} - optional - default: button
+ * @param {[modifier]} - optional
+ * @param {[additionalClasses]} - optional
+ * @param {[additionalAttributes]} - optional
+ */
+#}
+
+
+{% set tag = tag|default('button') %}
+{% set additionalClass = additionalClass|default(false) %}
+{% set modifier = 'xxx' %}
+
+{% if text is defined %}
+<{{ tag }} class="c-button"{{ disabled|default(false) ? ' is-disabled' }}>{{ text }}</{{ tag }}>
+{% endif %}
+
+
+{#
+<{{ tag }} class="c-button c-button--secondary"{{ disabled|default(false) ? ' is-disabled' }}>{{ text }}</{{ tag }}>
+<{{ tag }} type="submit" class="c-button c-button--primary js-change-step" data-step="baseData" data-form{{ disabled|default(false) ? ' is-disabled' }}>{{ text }}</{{ tag }}>
+#}

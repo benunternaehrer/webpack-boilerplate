@@ -1,0 +1,46 @@
+.c-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+
+    .is-overlay-loading & {
+        display: block;
+        transition: opacity $trans-time;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .is-overlay-hiding & {
+        opacity: 0;
+    }
+}
+
+.c-loading-overlay__title {
+    margin: 0 auto $space-xxs;
+    max-width: 60%;
+    line-height: 1.2em;
+}
+
+.c-loading-overlay__content {
+    @include font(primary, medium);
+    margin-bottom: $space-xl;
+}
+
+.c-loading-overlay__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background: $color-grey--20;
+    padding: $space-md;
+    width: 590px;
+    height: 405px;
+    text-align: center;
+}

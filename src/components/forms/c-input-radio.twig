@@ -1,0 +1,27 @@
+{# assign default values #}
+{% set required = required | default(false) %}
+{% set label = label | default(null) %}
+{% set name = name | default('Field Name') %}
+
+{# generate a random id to make labels clickable in form fields #}
+{% set field_id = field_id | default('input-field-' ~ random()) %}
+
+<div class="c-input-radio">
+    {% if label %}
+        <div class="c-label">{{ label }}</div>
+    {% endif %}
+    {% for key, value in values %}
+    <input
+        {% if loop.index == selectedIndex %}checked{% endif %}
+        type="radio"
+        class="c-input-radio__input"
+        id="{{ field_id }}-{{ loop.index }}"
+        name="{{ name }}"
+        value="{{ value }}">
+    <label
+        for="{{ field_id }}-{{ loop.index }}"
+        class="c-input-radio__label">
+        {{ key }}
+    </label>
+    {% endfor %}
+</div>

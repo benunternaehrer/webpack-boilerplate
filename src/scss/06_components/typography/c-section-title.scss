@@ -1,0 +1,5 @@
+.c-section-title {
+    @include font(primary, medium);
+    margin-bottom: $space-stack-xxs;
+    color: $color-black;
+}

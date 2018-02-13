@@ -1,0 +1,44 @@
+// =========================================================
+// GENERAL PROJECT SETTINGS
+// =========================================================
+
+:root  {
+    background-color: $color-white;
+}
+
+figure  {
+    line-height: 0;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+// =========================================================
+// PASS MEDIAQUERIES TO JS
+// =========================================================
+
+body {
+    &::after {
+        @include size(sm-up) {
+            content: '2';
+        }
+        @include size(md-up) {
+            content: '3';
+        }
+        @include size(lg-up) {
+            content: '4';
+        }
+        @include size(xl-only) {
+            content: '5';
+        }
+        position: absolute;
+        top: -20000px;
+        left: -20000px;
+        width: 0;
+        height: 0;
+        content: '1';
+    }
+}

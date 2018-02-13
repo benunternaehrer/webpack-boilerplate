@@ -1,0 +1,89 @@
+// SETTINGS
+@import
+'01_settings/variables';
+
+// TOOLS
+@import
+'02_tools/media-queries',
+'02_tools/fonts',
+'02_tools/mixins-custom';
+
+// =========================================================
+// GRID INFO
+// =========================================================
+
+$gird-helper-color-1: #FF004F;
+$gird-helper-color-2: #27AE60;
+$gird-helper-color-3: #F39C12;
+$gird-helper-color-4: #2980B9;
+$gird-helper-color-5: #8E44AD;
+$gird-helper-color-6: #AAAAAA;
+
+// SET TO TRUE OR FALSE
+$gridInfo: false;
+
+@if $gridInfo == true {
+    html    {
+        &::before,
+        &::after {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            white-space: pre;
+            color: $color-white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        &::before {
+            @include size(sm-only) {
+                background-color: $gird-helper-color-2;
+                content: '#{$grid-sm} – #{$grid-md - 1}: size-sm-up / size-sm-only';
+            }
+            @include size(md-only) {
+                background-color: $gird-helper-color-3;
+                content: '#{$grid-md} – #{$grid-lg - 1}: size-md-up / size-md-only';
+            }
+            @include size(lg-only) {
+                background-color: $gird-helper-color-4;
+                content: '#{$grid-lg} – #{$grid-xl - 1}: size-lg-up / size-lg-only';
+            }
+            @include size(xl-only) {
+                background-color: $gird-helper-color-5;
+                content: '#{$grid-xl}: size-xl-only';
+            }
+            left: 50px;
+            background-color: $gird-helper-color-1;
+            padding-right: 20px;
+            padding-left: 20px;
+            height: 50px;
+            text-align: left;
+            content: '0 – #{$grid-sm - 1}: size-xs-only';
+        }
+
+        &::after {
+            @include size(sm-only) {
+                content: 'SM';
+            }
+            @include size(md-only) {
+                content: 'MD';
+            }
+            @include size(lg-only) {
+                content: 'LG';
+            }
+            @include size(xl-only) {
+                content: 'XL';
+            }
+            left: 0;
+            background-color: $gird-helper-color-6;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            content: 'XS';
+        }
+    }
+}
+

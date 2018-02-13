@@ -1,0 +1,48 @@
+{# assign default values #}
+{% set small = small | default(false) %}
+{% set error = error | default(false) %}
+{% set warning = warning | default(false) %}
+{% set disabled = disabled | default(false) %}
+{% set required = required | default(false) %}
+{% set value = value | default(null) %}
+{% set type = type | default('text') %}
+{% set placeholder = placeholder | default(null) %}
+{% set label = label | default(null) %}
+{% set name = name | default('Field Name') %}
+
+{%- set openingInputTag -%}
+    {%- if type == 'textarea' -%}
+        textarea
+    {%- else -%}
+        input
+    {%- endif -%}
+{%- endset -%}
+{%- set closingInputTag -%}
+    {%- if type == 'textarea' -%}
+        >{% if value %}{{ value }}{% endif %}</textarea>
+    {%- else-%}
+        >
+    {%- endif -%}
+{%- endset -%}
+
+{# generate a random id to make labels clickable in form fields #}
+{% set field_id = field_id | default('input-field-' ~ random()) %}
+
+{% if type != 'hidden' %}
+<div class="c-input-field c-input-field--{{ type }} {{ small ? 'c-input-field--small' }} {{ error ? 'has-error' }} {{ warning ? 'has-warning' }} {{ disabled ? 'is-disabled' }}">
+    {% if label %}
+    <label class="c-label" for="{{ field_id }}">{{ label }}</label>
+    {% endif %}
+    <{{ openingInputTag }} class="c-input-field__input {{ value ? 'is-filled-out' }}"
+           name="{{ name }}"
+           id="{{ field_id }}"
+           type="{{ type }}"
+           autocomplete="{{ name }}"
+           {% if type !='textarea' and value %} value="{{ value }}"{% endif %}
+           {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+           {{ disabled ? 'disabled' }}
+           {{ required ? 'required' }}{{ closingInputTag }}
+</div>
+{% else %}
+<input type="hidden" name="{{ name }}" value="{{ value }}">
+{% endif %}

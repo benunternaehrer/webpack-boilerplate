@@ -1,0 +1,27 @@
+.c-main {
+    margin-bottom: $space-stack-sm;
+    padding-top: $space-lg;
+}
+
+.c-main__content {
+    transition: opacity $trans-time;
+    opacity: 1;
+
+    .c-main.is-hidden & { // sass-lint:disable-line force-element-nesting
+        opacity: 0;
+    }
+}
+
+.c-main__spinner {
+    position: fixed;
+    top: calc(50vh - 20px);
+    right: 0;
+    left: 0;
+    transition: opacity $trans-time;
+    opacity: 0;
+    pointer-events: none;
+
+    .c-main.is-hidden & { // sass-lint:disable-line force-element-nesting
+        opacity: 1;
+    }
+}

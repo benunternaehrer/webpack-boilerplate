@@ -1,0 +1,13 @@
+countries:
+    -
+        text: Afghanistan
+        id: AF
+    -
+        text: Aland Islands
+        id: AX
+    -
+        text: Albania
+        id: AL
+    -
+        text: Switzerland
+        id: CH

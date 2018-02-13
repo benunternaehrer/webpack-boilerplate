@@ -1,0 +1,30 @@
+{# assign default values #}
+{% set error = error | default(false) %}
+{% set warning = warning | default(false) %}
+{% set disabled = disabled | default(false) %}
+{% set required = required | default(false) %}
+{% set value = value | default(null) %}
+{% set label = label | default('Field label') %}
+{% set name = name | default('Field Name') %}
+{% set value = value| default('false') %}
+{% set checked = checked | default('') %}
+
+{# generate a random id to make labels clickable in form fields #}
+{% set field_id = field_id | default('input-field-' ~ random()) %}
+
+<div class="c-input-checkbox {{ error ? 'has-error' }} {{ warning ? 'has-warning' }} {{ disabled ? 'is-disabled' }}">
+    <input
+            {{ checked ? 'checked' }}
+            class="c-input-checkbox__input"
+            name="{{ name }}"
+            type="checkbox"
+            id="{{ field_id }}"
+            value="{{ value }}"
+            {{ disabled ? 'disabled' }}
+            {{ required ? 'required' }}>
+    <label
+            class="c-input-checkbox__label"
+            for="{{ field_id }}">
+            {{ label }}
+    </label>
+</div>

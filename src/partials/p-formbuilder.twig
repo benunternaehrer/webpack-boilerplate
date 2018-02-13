@@ -1,0 +1,29 @@
+{% for formGroup in formGroups %}
+<div class="l-row c-form__row">
+    {% if formGroup.title %}
+        <div class="l-col l-col--12">
+            <h2 class="c-section-title">{{ formGroup.title }}</h2>
+        </div>
+    {% endif %}
+    {% for field in formGroup.fields %}
+    {% if field.type != 'hidden' %}
+    <div class="l-col l-col--{{ field.cols | default(12) }}">
+        {% if field.type in ['text', 'textarea', 'email', 'number'] %}
+        {% include '../components/forms/c-input-field.twig' with field %}
+        {% elseif field.type == 'checkbox' %}
+        {% include '../components/forms/c-input-checkbox.twig' with field %}
+        {% elseif field.type == 'radio' %}
+        {% include '../components/forms/c-input-radio.twig' with field %}
+        {% elseif field.type == 'select' %}
+        {% include '../components/forms/c-select.twig' with field %}
+        {% endif %}
+    </div>
+    {% if field.filler %}
+        <div class="l-col l-col--filler l-col--{{ field.filler }}"></div>
+    {% endif %}
+    {% else %}
+    {% include '../components/forms/c-input-field.twig' with field %}
+    {% endif %}
+    {% endfor %}
+</div>
+{% endfor %}

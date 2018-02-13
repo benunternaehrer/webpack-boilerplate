@@ -1,0 +1,12 @@
+.c-form {
+    margin-bottom: $space-stack-xs;
+}
+
+.c-form__row {
+    margin-bottom: $space-stack-xs;
+    padding-bottom: $space-stack-xxs;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-black;
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "A Boilerplate for non-js frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack-dev-server --config webpack/webpack.config.js --env.dev",
+    "build:dev": "NODE_ENV=dev node index.js & webpack --config webpack/webpack.config.js --env.dev",
+    "build:prod": "NODE_ENV=prod node index.js & webpack --config webpack/webpack.config.js --env.prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "7.2.3",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "css-loader": "0.28.7",
+    "extract-text-webpack-plugin": "3.0.2",
+    "import-glob": "1.5.0",
+    "node-sass": "4.7.2",
+    "postcss-loader": "2.0.9",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.19.1",
+    "twig": "1.10.5",
+    "uglifyjs-webpack-plugin": "1.1.4",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7",
+    "yamljs": "0.3.0"
+  }
+}

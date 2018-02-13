@@ -1,0 +1,59 @@
+.c-input-checkbox {
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+
+    &::selection {
+        background: transparent;
+    }
+}
+
+.c-input-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.c-input-checkbox__label {
+    position: relative;
+    margin-bottom: 15px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    padding-left: 1.8em;
+    line-height: 1em;
+    color: $color-black;
+
+    &::before {
+        position: absolute;
+        left: 0;
+        border: 1px solid $color-grey--40;
+        border-radius: $border-radius-default;
+        background-color: $color-white;
+        width: 1em;
+        height: 1em;
+        content: '';
+    }
+
+    &::selection {
+        background: transparent;
+    }
+
+    // sass-lint:disable force-pseudo-nesting, force-element-nesting, no-combinators
+    .c-input-checkbox__input:checked + & {
+        color: $color-black;
+
+        &::after {
+            position: absolute;
+            left: 0;
+            border-radius: $border-radius-default;
+            padding-top: .1em;
+            padding-right: .1em;
+            padding-left: .1em;
+            text-align: center;
+            color: $color-primary;
+            font-size: 0.8em;
+            content: '✔';
+        }
+    }
+}

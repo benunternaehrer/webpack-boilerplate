@@ -1,0 +1,82 @@
+.c-progress-bar {
+    @include font(primary, light);
+    border-top: 1px solid $color-grey--60;
+    background: $color-grey--20;
+    overflow: hidden;
+}
+
+.c-progress-bar__list {
+    display: flex;
+    padding: 0 45px;
+    counter-reset: navigation;
+}
+
+.c-progress-bar__list-item {
+    @include font-size(fs-120);
+    position: relative;
+    cursor: pointer;
+    padding: 45px 35px 20px 50px;
+    width: 20%;
+    min-height: 85px;
+    white-space: nowrap;
+    color: $color-grey--60;
+    list-style-type: none;
+
+    &.is-active {
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+        background: $color-white;
+        color: $color-primary;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        content: counter(navigation);
+        counter-increment: navigation;
+    }
+
+    &::after {
+        position: absolute;
+        top: 25px;
+        left: 43px;
+        transform: skew(-15deg);
+        background-color: $color-grey--60;
+        width: 1px;
+        height: 40px;
+        content: '';
+    }
+
+    &.has-sub-list {
+        padding: 21px 35px 20px 55px;
+    }
+}
+
+.c-progress-bar__sub-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.c-progress-bar__sub-list-title {
+    @include font-size(fs-50);
+    font-style: italic;
+}
+
+.c-progress-bar__sub-list-item {
+    width: 33.333%;
+    color: $color-grey--60;
+    list-style-type: none;
+
+    &:nth-child(2) {
+        text-align: center;
+    }
+
+    &.is-active {
+        color: $color-primary;
+    }
+}

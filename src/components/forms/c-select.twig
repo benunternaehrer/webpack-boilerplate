@@ -1,0 +1,40 @@
+{# assign default values #}
+{% set error = error | default(false) %}
+{% set warning = warning | default(false) %}
+{% set disabled = disabled | default(false) %}
+{% set required = required | default(false) %}
+{% set placeholder = placeholder | default(null) %}
+{% set searchPlaceholder = searchPlaceholder | default(null) %}
+{% set label = label | default(null) %}
+{% set multiple = multiple | default(false) %}
+{% set name = name | default('Field Name') %}
+{% set class = class is defined ? class : true %}
+{% set dataChoices = field.dataChoices | default(null) %}
+{% set optionName = options.name | default('name') %}
+{% set optionValue = options.value | default('value') %}
+{% set options = options.array | default([{
+    'name': 'No options',
+    'value': 'No value'
+}]) %}
+
+<div class="c-select">
+    {% if label %}
+    <label class="c-label" for="{{ name }}">{{ label }}</label>
+    {% endif %}
+    <div class="s-choice">
+        <select
+            name="{{ name }}"
+            autocomplete="{{ name }}"
+            id="{{ name }}"
+            class="{{ class ? 'js-choice' : '' }}"
+            {% if multiple %}multiple{% endif %}
+            {% if dataChoices %}data-choices="{{ dataChoices }}"{% endif %}
+            {% if searchPlaceholder %}data-searchplaceholder="{{ searchPlaceholder }}"{% endif %}
+        >
+            <option value="">&nbsp;</option>
+            {% for option in options %}
+            <option value="{{ option[optionValue] }}">{{ option[optionName] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

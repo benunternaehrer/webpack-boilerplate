@@ -1,0 +1,103 @@
+// =========================================================
+// FONT-FAMILY MIXINS
+// =========================================================
+
+/**
+ * Mixin for your font family
+ * @param $font font-family
+ * @param $weight font-weight
+ * @param $style font-style
+ * @example
+ *   @include font(Roboto, normal, italic);
+ */
+@mixin font($font: primary, $weight: 500, $style: null) {
+
+    @if map-has-key($fonts, $font) {
+
+        // SET FONT FAMILY
+        $selectedFont: map-get($fonts, $font);
+        font-family: map-get($selectedFont, name), map-get($selectedFont, fallback);
+
+        // SET FONT WEIGHT
+        @if $weight in map-get($selectedFont, weights) {
+            $selectedFontWeights: map-get($selectedFont, weights);
+            font-weight: map-get($selectedFontWeights, $weight);
+        }
+        @else {
+            @error('Font weight not set!');
+        }
+    }
+    @else {
+        @error('Font does not exist!');
+    }
+    @if $style {
+        font-style: $style;
+    }
+};
+
+
+// =========================================================
+// FONT-SIZE MIXINS
+// =========================================================
+
+/**
+ * Font sizes and line-height
+ * @param $type
+ * @param $font-size
+ * @example
+ *   @include font-size(fs-360);
+ */
+@mixin font-size($type: fs-100) {
+    // Generating mixins below: Do not change
+    $type: map-get($font-sizes, $type);
+
+    // LINE-HEIGHTS
+    @if map-has-key($type, line-height) {
+        line-height: map-get($type, line-height);
+    }
+    @if map-has-key($type, line-height-sm) {
+        @include size(sm-up) {
+            line-height: map-get($type, line-height-sm);
+        }
+    }
+    @if map-has-key($type, line-height-md) {
+        @include size(md-up) {
+            line-height: map-get($type, line-height-md);
+        }
+    }
+    @if map-has-key($type, line-height-lg) {
+        @include size(lg-up) {
+            line-height: map-get($type, line-height-lg);
+        }
+    }
+    @if map-has-key($type, line-height-xl) {
+        @include size(xl-only) {
+            line-height: map-get($type, line-height-xl);
+        }
+    }
+
+    // FONT-SIZES
+    @if map-has-key($type, font-size) {
+        font-size: map-get($type, font-size);
+    }
+    @if map-has-key($type, font-size-sm) {
+        @include size(sm-up) {
+            font-size: map-get($type, font-size-sm);
+        }
+    }
+    @if map-has-key($type, font-size-md) {
+        @include size(md-up) {
+            font-size: map-get($type, font-size-md);
+        }
+    }
+    @if map-has-key($type, font-size-lg) {
+        @include size(lg-up) {
+            font-size: map-get($type, font-size-lg);
+        }
+    }
+    @if map-has-key($type, font-size-xl) {
+        @include size(xl-only) {
+            font-size: map-get($type, font-size-xl);
+        }
+    }
+}

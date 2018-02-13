@@ -1,0 +1,15 @@
+.c-select {
+    position: relative;
+    margin-bottom: $space-stack-xs;
+    padding-top: $space-stack-xxs;
+    width: 100%;
+
+    .c-base-data__row & {
+        margin: 0;
+        padding: 0;
+    }
+    
+    &.is-hidden {
+        display: none;
+    }
+}

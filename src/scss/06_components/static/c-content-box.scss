@@ -1,0 +1,24 @@
+.c-content-box {
+    margin-bottom: $space-stack-sm;
+    border-radius: $border-radius-default;
+    background-color: $color-grey--20;
+    padding-top: $space-md;
+    padding-right: $space-sm;
+    padding-left: $space-sm;
+
+    &--warn,
+    &--danger,
+    &--success {
+        border-left: 8px solid $color-error;
+    }
+
+    &--warn {
+        border-color: $color-warn;
+    }
+    &--danger {
+        border-color: $color-error;
+    }
+    &--success {
+        border-color: $color-success;
+    }
+}

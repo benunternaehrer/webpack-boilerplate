@@ -1,0 +1,12 @@
+.c-selected-value {
+    @include font-size(fs-60);
+    border: 1px solid $color-grey--60;
+    border-radius: $border-radius-default;
+    padding-right: $space-xxs;
+    padding-bottom: 0;
+    padding-left: $space-xxs;
+    height: $input-height--lg;
+    min-height: auto;
+    line-height: $input-height--lg;
+    color: $color-black;
+}

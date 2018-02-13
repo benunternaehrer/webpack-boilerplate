@@ -1,0 +1,11 @@
+.c-title {
+    @include font(primary, medium);
+    @include font-size(fs-160);
+    margin-bottom: $space-stack-xs;
+    text-align: center;
+    color: $color-black;
+
+    &--warn {
+        color: $color-secondary;
+    }
+}

@@ -1,0 +1,5 @@
+.c-warning-message {
+    @include font(primary, regular, italic);
+    @include font-size(fs-60);
+    color: $color-secondary;
+}

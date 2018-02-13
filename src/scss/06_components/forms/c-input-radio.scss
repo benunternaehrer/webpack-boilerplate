@@ -1,0 +1,76 @@
+.c-input-radio {
+    position: relative;
+    margin-bottom: $space-stack-xs;
+    padding-top: $space-stack-xxs;
+    width: 100%;
+
+    &::selection {
+        background: transparent;
+    }
+
+    &--no-label {
+        position: relative;
+        right: -5px;
+        margin-bottom: 0;
+        padding-top: 0;
+        text-align: right;
+    }
+}
+
+.c-input-radio__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.c-input-radio__label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 2em;
+    height: $input-height--lg;
+    line-height: $input-height--lg + 5;
+    color: $color-black;
+
+    &::before {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        border: 1px solid $color-grey--60;
+        border-radius: 50%;
+        background-color: $color-white;
+        width: 26px;
+        height: 26px;
+        content: '';
+    }
+
+    &::after {
+        position: absolute;
+        top: 12px;
+        left: 5px;
+        border-radius: 50%;
+        background-color: $color-white;
+        width: 16px;
+        height: 16px;
+        content: '';
+    }
+
+    &::selection {
+        background: transparent;
+    }
+
+    &:not(:last-child) {
+        margin-right: $space-xs;
+    }
+
+    .c-input-radio--no-label & {
+        top: -8px;
+        height: 26px;
+    }
+
+    // sass-lint:disable force-pseudo-nesting, force-element-nesting, no-combinators
+    .c-input-radio__input:checked + & {
+        &::after {
+            background-color: $color-grey--80;
+        }
+    }
+}

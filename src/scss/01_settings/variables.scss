@@ -1,0 +1,171 @@
+// =============================================
+// COLORS
+// =============================================
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-primary: #004C97;
+$color-primary--active: #103060;
+$color-secondary: #A4241E;
+
+$color-info: $color-secondary;
+$color-error: $color-secondary;
+$color-warn: #FF8C00;
+$color-success: #6DC300;
+
+$color-grey--20: #F5F5F5;
+$color-grey--40: #ECECEC;
+$color-grey--60: #BCBDBD;
+$color-grey--80: #767676;
+$color-grey--100: #272D34;
+
+// =============================================
+// MEDIA QUERIES
+// =============================================
+
+// Common Device sizes:
+// iPhone 5: 320px
+// iPhone 7: 375px
+// iPhone 7 Plus: 414px
+// iPad hoch: 768px
+// iPad quer: 1024px
+// HD: 1280px
+
+// Usage: @include size(xs-only) {}
+// Available parameters:
+// xs-only, sm-only, md-only, lg-only, xl-only
+// sm-up, md-up, lg-up
+// sm-down, md-down, lg-down
+
+$grid-xs: 100%;
+$grid-sm: 580px;
+$grid-md: 768px;
+$grid-lg: 1024px;
+$grid-xl: 1140px;
+
+
+// =============================================
+// FONT-FAMILIES
+// =============================================
+
+// Include @font-face here if necessary.
+// Use only one font-name and set appropriate font-weights!
+//
+// Set the different fonts below and use them as mixin.
+// Name, fallback and weights must be set.
+// @include font(primary, light);
+// @include font(secondary, bold);
+// Optional: Include the font style as the last parameter
+// @include font(primary, light, italic);
+
+$fonts: (
+    primary: (
+        name: 'Helvetica',
+        fallback: 'sans-serif',
+        weights: (
+            light: 300,
+            regular: 400,
+            medium: 500,
+            bold: 700
+        )
+    )
+);
+
+
+// =============================================
+// FONT-SIZES
+// =============================================
+
+// Usage: @include font-size(fs-100);
+// The purpose of the key-numbers is to have them ordered relative to their font-size.
+// The key-numbers are not related in any other way to the font-size or line-height.
+// Use fs-100 as basic font-size.
+
+$font-sizes: (
+    fs-50: (
+        font-size: 12px,
+        line-height: 120%
+    ),
+    fs-60: (
+        font-size: 12px,
+        font-size-lg: 14px,
+        line-height: 145%
+    ),
+    fs-100: (
+        font-size: 14px,
+        font-size-lg: 16px,
+        line-height: 145%
+    ),
+    fs-120: (
+        font-size: 16px,
+        font-size-lg: 18px,
+        line-height: 145%
+    ),
+    fs-160: (
+        font-size: 18px,
+        font-size-lg: 35px,
+        line-height: 145%
+    )
+);
+
+
+// =========================================================
+// SPACING
+// =========================================================
+
+$gutter: 24px;
+
+// SPACING BASICS
+$space-xxxs: 4px;
+$space-xxs: 8px;
+$space-xs: 16px;
+$space-sm: 24px;
+$space-md: 32px;
+$space-lg: 40px;
+$space-xl: 48px;
+$space-xxl: 60px;
+
+// SPACING STACKING
+$space-stack-xxxxs: 5px;
+$space-stack-xxxs: 10px;
+$space-stack-xxs: 20px;
+$space-stack-xs: 30px;
+$space-stack-sm: 50px;
+$space-stack-md: 70px;
+$space-stack-lg: 100px;
+$space-stack-xl: 130px;
+$space-stack-xxl: 200px;
+
+// =========================================================
+// Z-INDEXES
+// =========================================================
+
+// USE z-index mixins
+// @include z-index('header');
+
+$zindex-positions: (
+);
+
+
+// =============================================
+// TRANSITIONS
+// =============================================
+
+$trans-time: 450ms cubic-bezier(.33, .7, .32, 1) 0ms;
+$trans-time-fast: 250ms cubic-bezier(.33, .7, .32, 1) 0ms;
+$trans-time-super-fast: 40ms cubic-bezier(.33, .7, .32, 1) 0ms;
+
+
+// =============================================
+// OTHERS
+// =============================================
+
+$border-radius-default: 4px;
+
+$button-min-width: 80px;
+
+$input-height--lg: 50px;
+
+$input-height--sm: 25px;
+
+$entry-page-width: 650px;

@@ -1,0 +1,8 @@
+.c-label {
+    @include font-size(fs-50);
+    @include font(primary, medium);
+    position: absolute;
+    top: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}

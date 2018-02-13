@@ -1,0 +1,67 @@
+// =========================================================
+// MEDIA QUERIES – DO NOT CHANGE
+// =========================================================
+
+/**
+ * Mixin to create Mediaqueries
+ * @param $mq font-family
+ * @example
+ *   @include size(xs-only) {}
+ */
+@mixin size($mq) {
+    @if $mq == 'xs-only' {
+        @media only screen and (max-width: $grid-sm - 1px) {
+            @content;
+        }
+    }
+    @else if $mq == 'sm-up' {
+        @media only screen and (min-width: $grid-sm) {
+            @content;
+        }
+    }
+    @else if $mq == 'sm-only' {
+        @media only screen and (min-width: $grid-sm) and (max-width: ($grid-md - 1px)) {
+            @content;
+        }
+    }
+    @else if $mq == 'sm-down' {
+        @media only screen and (max-width: ($grid-md - 1px)) {
+            @content;
+        }
+    }
+    @else if $mq == 'md-up' {
+        @media only screen and (min-width: $grid-md) {
+            @content;
+        }
+    }
+    @else if $mq == 'md-only' {
+        @media only screen and (min-width: $grid-md) and (max-width: ($grid-lg - 1px)) {
+            @content;
+        }
+    }
+    @else if $mq == 'md-down' {
+        @media only screen and (max-width: ($grid-lg - 1px)) {
+            @content;
+        }
+    }
+    @else if $mq == 'lg-up' {
+        @media only screen and (min-width: $grid-lg) {
+            @content;
+        }
+    }
+    @else if $mq == 'lg-only' {
+        @media only screen and (min-width: $grid-lg) and (max-width: ($grid-xl - 1px )) {
+            @content;
+        }
+    }
+    @else if $mq == 'lg-down' {
+        @media only screen and (max-width: ($grid-xl - 1px)) {
+            @content;
+        }
+    }
+    @else if $mq == 'xl-only' {
+        @media only screen and (min-width: $grid-xl) {
+            @content;
+        }
+    }
+}

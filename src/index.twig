@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <!-- Older browsers load this file (and module-supporting -->
+    <!-- browsers know *not* to load this file). -->
+    {% if nodeEnv == 'prod' %}
+    <script nomodule src="main-legacy.js" defer></script>
+    {% endif %}
+    <!-- Browsers with ES module support load this file. -->
+    <script type="module" src="main.js"></script>
+    {% block moduleScripts %}{% endblock %}
+</head>
+<body>
+
+{% include './components/global/c-header.twig' %}
+
+{% block main %}{% endblock %}
+
+<script>
+    let modules = document.querySelectorAll(`[data-module]`);
+    let moduleFiles = [];
+    modules.forEach(module => {
+        let moduleName = module.dataset.module;
+        if(!moduleFiles.includes(moduleName)) {
+            moduleFiles.push(moduleName);
+        }
+    });
+    console.log(moduleFiles);
+
+
+    moduleFiles.forEach(module => {
+        let script = document.createElement('script');
+        script.setAttribute('defer', '');
+        script.setAttribute('src', `${module}.js`);
+        document.head.appendChild(script);
+    });
+
+</script>
+
+</body>
+</html>
+

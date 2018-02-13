@@ -1,0 +1,95 @@
+.c-bg-check {
+    //
+}
+
+//.c-bg-check__title {
+//    margin-bottom: $space-stack-sm;
+//}
+
+// =========================================================
+// RESULTS COLUMN
+// =========================================================
+
+.c-bg-check__result-headline {
+    @include font-size(fs-50);
+    color: $color-grey--80;
+}
+
+.c-bg-check__results-w {
+    position: relative;
+    padding-right: $space-sm;
+    min-height: 100%;
+    max-height: 80vh;
+    overflow-y: scroll;
+
+    &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $color-grey--80;
+        width: 1px;
+        height: calc(100% - 50px);
+        content: '';
+    }
+}
+
+.c-bg-check__result-headline {
+    margin-bottom: $space-stack-xxxs;
+}
+
+.c-bg-check__result-hit {
+    float: right;
+}
+
+.c-bg-check__result-hit-col {
+    &:last-child {
+        margin-left: 2em;
+    }
+}
+
+.c-bg-check__result-row {
+    color: $color-grey--100;
+}
+
+.c-bg-check__result-row {
+    margin-bottom: $space-stack-xxs;
+    padding-bottom: $space-stack-xxs;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-grey--80;
+    }
+}
+
+.c-bg-check__truncate-label {
+    @include font-size(fs-50);
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    color: $color-primary;
+
+    &::before {
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        transform: rotate(-135deg);
+        margin-right: $space-xxs;
+        border-top: 1px solid $color-primary;
+        border-left: 1px solid $color-primary;
+        width: 9px;
+        height: 9px;
+        content: '';
+    }
+
+    &.is-open {
+        &::before {
+            top: 4px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+
+// =========================================================
+// REVIEW COLUMN
+// =========================================================

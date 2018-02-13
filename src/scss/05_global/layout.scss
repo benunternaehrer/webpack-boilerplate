@@ -1,0 +1,44 @@
+// =========================================================
+// LAYOUT CLASSES -> CAN BE USED GLOBALLY
+// =========================================================
+
+// GRID
+.l-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--center {
+        justify-content: center;
+    }
+}
+
+.l-col {
+
+    .l-row--no-gutter & {
+        margin-right: -1px;
+        margin-bottom: -1px;
+    }
+
+    @for $i from 1 through 12 {
+        &--#{$i} {
+            width: calc((100% / 12 * #{$i}) - (#{$gutter} / 12 * (12 - #{$i})));
+
+            .l-row--no-gutter & {
+                flex-grow: 1;
+                width: 100 / 12 * $i * 1%;
+            }
+        }
+    }
+
+    &--filler {
+        height: 0;
+    }
+}
+
+
+.l-container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+}

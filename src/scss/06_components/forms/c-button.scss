@@ -1,0 +1,83 @@
+.c-button {
+    @include font(primary, medium);
+    @include font-size(fs-60);
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: background-color $trans-time-fast, color $trans-time-fast, border-color $trans-time-fast, top $trans-time-super-fast;
+    border-radius: $border-radius-default;
+    padding-right: 15px;
+    padding-left: 15px;
+    min-width: 180px;
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.0625em;
+
+    &:active {
+        top: 2px;
+    }
+
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &:active,
+        &:hover,
+        &:focus {
+            background-color: $color-primary--active;
+        }
+    }
+
+    &--secondary {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $color-primary;
+        background-color: $color-white;
+        color: $color-primary;
+
+        &:active,
+        &:hover,
+        &:focus {
+            border-color: $color-primary--active;
+            color: $color-primary--active;
+        }
+    }
+
+    &--large {
+        padding: 10px;
+    }
+
+    &--small {
+        padding: 10px;
+    }
+
+    &.is-disabled {
+        border-color: $color-grey--40;
+        background-color: $color-grey--40;
+        cursor: not-allowed;
+        color: $color-black;
+
+        &:active,
+        &:hover,
+        &:focus {
+            background-color: $color-grey--40;
+        }
+    }
+
+    &+ & {
+        margin-left: $space-sm;
+    }
+
+}
+
+.c-button__text {
+    .c-button--small & {
+        //
+    }
+
+    .c-button--large & {
+        //
+    }
+}

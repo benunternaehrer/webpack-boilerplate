@@ -1,0 +1,49 @@
+.c-table {
+    position: relative;
+    padding-bottom: $space-stack-xxs;
+}
+
+.c-table__headline {
+    @include font-size(fs-50);
+    margin-right: -$space-xxs;
+    margin-bottom: $space-stack-xxxs;
+    margin-left: -$space-xxs;
+    color: $color-grey--80;
+}
+
+.c-table__row {
+    margin-right: -$space-xxs;
+    margin-left: -$space-xxs;
+    padding-top: $space-xs;
+    padding-bottom: $space-xxs;
+
+    &:nth-child(odd) {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.c-table__cell {
+    padding-right: $space-xxs;
+    padding-left: $space-xxs;
+}
+
+.c-table__headline {
+    .c-table__cell:not(:first-child) {
+        &::after {
+            display: block;
+            position: absolute;
+            top: -4px;
+            margin-left: -($gutter / 2);
+            background: $color-grey--60;
+            width: 1px;
+            height: calc(100% - 16px);
+            content: '';
+        }
+    }
+}
+
+.c-table__label {
+    @include font-size(fs-50);
+    @include font(primary, medium);
+    text-transform: uppercase;
+}

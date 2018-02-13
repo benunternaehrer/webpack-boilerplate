@@ -1,0 +1,10 @@
+.c-error-msg {
+    @include font(primary, regular, italic);
+    @include font-size(fs-60);
+    position: absolute;
+    top: 100%;
+    padding-top: 4px;
+    line-height: 100%;
+    color: $color-error;
+    white-space: nowrap;
+}

@@ -1,0 +1,53 @@
+// =========================================================
+// Font-Settings
+// =========================================================
+
+// sass-lint:disable no-vendor-prefixes
+:root     {
+    @include font(primary, regular);
+    @include font-size(fs-100);
+    text-align: left;
+    color: $color-black;
+    text-size-adjust: none;
+    // BU 2016-10-19: BUG IN SASSLINT https://github.com/sasstools/sass-lint/issues/824
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+    color: $color-black;
+}
+
+a   {
+    color: $color-black;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+}
+
+strong,
+b  {
+    font-weight: 700;
+}
+
+em   {
+    font-style: italic;
+}
+
+sup,
+sub {
+    line-height: 0;
+    font-size: 60%;
+}
+
+sup {
+    vertical-align: super;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+// sass-lint:enable no-vendor-prefixes

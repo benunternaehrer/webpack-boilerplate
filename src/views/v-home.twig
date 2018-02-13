@@ -1,0 +1,266 @@
+{% extends '../index.twig' %}
+
+{% block main %}
+<div class="l-row l-row--center">
+    <div class="l-col l-col--12">
+        {% include '../components/headline/c-headline.twig' with {
+            'text': 'Welcome to Components World!'
+        } %}
+        {% include '../components/toggle/c-toggle.twig' with {
+            'text': 'Toggle me'
+        } %}
+    </div>
+</div>
+<div class="l-row l-row--center">
+    <div class="l-col l-col--8">
+
+        <h1 class="c-title">Beneficial Owner</h1>
+
+        <form class="c-form js-serialize-form">
+
+            {# TODO: check hidden fields #}
+            {% include '../partials/p-formbuilder.twig' with {
+                'formGroups': [
+                    {
+                        'fields': [
+                        {
+                            'name': 'review',
+                            'type': 'hidden',
+                            'value': 'true',
+                        },
+                        {
+                            'name': 'corporate',
+                            'type': 'hidden',
+                            'value': 'false',
+                        },
+                        {
+                            'name': 'submit',
+                            'type': 'hidden',
+                            'value': 'false',
+                        },
+                        {
+                            'name': 'check',
+                            'type': 'hidden',
+                            'value': 'true',
+                        },
+                        {
+                            'name': 'role',
+                            'type': 'hidden',
+                            'value': 'BO',
+                        },
+                        {
+                            'name': 'NoLE',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'LF',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'DoI',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'coName',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'coSurname',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'CoR',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'resStatus',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'CPSub',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'NoBOE',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'percentBOE',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'LEtype',
+                            'type': 'hidden',
+                            'value': '',
+                        },
+                        {
+                            'name': 'EAM',
+                            'type': 'hidden',
+                            'value': 'false',
+                        },
+                        {
+                            'label': 'Forename',
+                            'name': 'forename',
+                            'type': 'text',
+                            'cols': 4,
+                            'filler': 8,
+                        },
+                        {
+                            'label': 'Forename',
+                            'name': 'forename',
+                            'type': 'text',
+                            'cols': 4,
+                        },
+                        {
+                            'label': 'Middle Name',
+                            'name': 'middlename',
+                            'type': 'text',
+                            'cols': 4,
+                        },
+                        {
+                            'label': 'Surname',
+                            'name': 'surname',
+                            'type': 'text',
+                            'cols': 4,
+                        }
+                    ]
+                    },
+                    {
+                        'fields': [
+                        {
+                            'label': 'Date of Birth',
+                            'name': 'date$DoB',
+                            'type': 'text',
+                            'cols': 2,
+                            'placeholder': 'DD',
+                        },
+                        {
+                            'type': 'text',
+                            'name': 'date$DoB',
+                            'cols': 2,
+                            'placeholder': 'MM',
+                        },
+                        {
+                            'type': 'text',
+                            'name': 'date$DoB',
+                            'cols': 2,
+                            'filler': 6,
+                            'placeholder': 'YYYY',
+                        },
+                    ]
+                    },
+                    {
+                        'fields': [
+                        {
+                            'label': 'EMail Address',
+                            'name': 'email',
+                            'type': 'email',
+                            'cols': 6,
+                        },
+                        {
+                            'label': 'Phone Nubmer (optional)',
+                            'name': 'phoneCountry',
+                            'type': 'select',
+                            'cols': 2,
+                            'placeholder': 'Country',
+                            'dataChoices': 'search',
+                            'options': {
+                                'array': ['1', '2', '3'],
+                                'name': 'text',
+                                'value': 'id',
+                            },
+                        },
+                        {
+                            'type': 'text',
+                            'cols': 4,
+                            'name': 'phoneNumber',
+                        }
+                    ]
+                    },
+                    {
+                        'fields': [
+                        {
+                            'label': 'Zip Code',
+                            'name': 'ZIP',
+                            'type': 'text',
+                            'cols': 2,
+                        },
+                        {
+                            'label': 'City',
+                            'name': 'city',
+                            'type': 'text',
+                            'cols': 4,
+                        },
+                        {
+                            'label': 'Street',
+                            'name': 'street',
+                            'type': 'text',
+                            'cols': 4,
+                        },
+                        {
+                            'label': 'No.',
+                            'name': 'streetNR',
+                            'type': 'number',
+                            'cols': 2,
+                        },
+                        {
+                            'label': 'Additional Information (e.g. Building)',
+                            'name': 'addInfo',
+                            'type': 'text',
+                            'cols': 12,
+                        },
+                        {
+                            'label': 'Nationality',
+                            'name': 'nationality',
+                            'type': 'select',
+                            'cols': 6,
+                            'dataChoices': 'search',
+                            'options': {
+                                'array': data.countries,
+                                'name': 'text',
+                                'value': 'id',
+                            }
+                        },
+                        {
+                            'label': 'Additional Nationalities',
+                            'name': 'addNat',
+                            'type': 'select',
+                            'cols': 6,
+                            'multiple': true,
+                            'dataChoices': 'search',
+                            'options': {
+                                'array': data.countries,
+                                'name': 'text',
+                                'value': 'id',
+                            }
+                        },
+                    ]
+                    },
+                ]
+            }
+            %}
+
+            <div class="u-right">
+                {% include '../components/forms/c-button.twig' with {
+                    'text': 'Interim Save',
+                    'modifier': ''
+                } %}
+                {% include '../components/forms/c-button.twig' with {
+                    'text': 'Save and back'
+                } %}
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

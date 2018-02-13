@@ -1,0 +1,25 @@
+{% extends '../index.twig' %}
+
+{% block moduleScripts %}
+    <meta test="v-contact-us">
+    <script type="module" src="test.js"></script>
+    <script type="module" src="test.js"></script>
+{% endblock %}
+
+{% block main %}
+<div class="l-row l-row--center">
+    <div class="l-col l-col--12">
+        {% include '../components/headline/c-headline.twig' with {
+            'text': 'Welcome to Components World'
+        } %}
+        {% include '../components/toggle/c-toggle.twig' with {
+            'text': 'Toggle me'
+        } %}
+        <br>
+        <br>
+        <br>
+        <div class="c-placeholder js-insert-text">Nothing yet...</div>
+
+    </div>
+</div>
+{% endblock %}

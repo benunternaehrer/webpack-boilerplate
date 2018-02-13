@@ -1,0 +1,112 @@
+// sass-lint:disable-all
+.s-choice {
+
+    &.has-selection {
+        margin-bottom: 60px;
+    }
+
+    .choices {
+        &.is-focused {
+            .choices__inner {
+                border-color: $color-grey--80;
+            }
+        }
+
+        &::after {
+            content: "";
+            border-style: solid;
+            position: absolute;
+            top: 50%;
+            pointer-events: none;
+            height: 12px;
+            width: 12px;
+            border-color: transparent $color-grey--80 $color-grey--80 transparent;
+            border-width: 1px;
+            transform: rotate(45deg);
+            right: $space-xs;
+            margin-top: -9px;
+        }
+    }
+
+    .choices__inner {
+        background-color: $color-white;
+        border: 1px solid $color-grey--60;
+        border-radius: $border-radius-default;
+        padding-right: $space-xxs;
+        padding-bottom: 0;
+        padding-left: $space-xxs;
+        height: $input-height--lg;
+        min-height: auto;
+        color: $color-black;
+        overflow: visible;
+
+        &.has-error {
+            border-color: $color-error;
+        }
+    }
+
+    .choices__input {
+        background-color: $color-white;
+        padding-top: 0;
+
+        &--cloned {
+
+        }
+
+        .is-hidden {
+
+        }
+    }
+    .choices__list  {
+
+        &--dropdown {
+
+        }
+
+        &--multiple {
+            position: absolute;
+            top: 50px;
+            left: 0;
+
+            .choices__item {
+                background-color: transparent;
+                color: $color-grey--80;
+                border-color: $color-grey--80;
+                padding-top: 0;
+                padding-bottom: 0;
+
+                .choices__button {
+                    border-left-color: $color-grey--80;
+                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAASUExURQAAAAAAAExpcQAAAAAAAAAAAOdQpcgAAAAGdFJOU1LzAKP1pTQ9JUYAAAAlSURBVAjXY2BmYAICBmYGBkYgC0gwgAkgB8wFCyIYMCm4Yph2AApoAEmY9uvHAAAAAElFTkSuQmCC);
+                }
+            }
+        }
+    }
+    .choices__item  {
+
+        &--selectable {
+            padding-right: 10px;
+
+            &[data-value=""] {
+                display: none;
+            }
+
+            &[aria-selected='true'] {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        &--choice {
+
+        }
+    }
+
+    .choices__button {
+        &:focus {
+            box-shadow: 0 0 0 2px $color-primary !important;
+        }
+    }
+}
+// sass-lint:enable-all
